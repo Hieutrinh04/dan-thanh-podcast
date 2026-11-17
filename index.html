@@ -103,7 +103,7 @@
   }
   .play:active { transform: scale(.94); }
   .play svg { width: 26px; height: 26px; }
-  .rate { justify-self: end; background: none; border: 0; cursor: pointer; color: var(--ink-2); font-size: 14px; }
+  .rate { justify-self: end; background: none; border: 0; cursor: pointer; color: var(--ink-2); font-size: 14px; white-space: nowrap; }
   .rate b { color: var(--ink); font-size: 16px; margin-left: 4px; }
   .vol { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
   .vol input { width: 130px; accent-color: #fff; }
@@ -142,6 +142,8 @@
     .rate b { font-size: 14px; }
   }
   @media (max-width: 420px) {
+    .rl { display: none; }
+    .rate b { margin: 0; background: var(--panel-2); padding: 4px 8px; border-radius: 8px; }
     .ep { grid-template-columns: 1fr; }
     .cover { width: 120px; }
   }
@@ -199,7 +201,7 @@
               <small>10</small>
             </button>
           </div>
-          <button class="rate" id="rate" aria-label="Đổi tốc độ phát">Tốc độ phát<b id="rate-v">1x</b></button>
+          <button class="rate" id="rate" aria-label="Đổi tốc độ phát"><span class="rl">Tốc độ phát</span><b id="rate-v">1x</b></button>
         </div>
         <div class="vol">
           <input type="range" id="vol" min="0" max="1" step="0.01" value="1" aria-label="Âm lượng">
