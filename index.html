@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Đan Thanh – Kịch bản truyền thanh | Kênh Đan Thanh</title>
-<meta name="description" content="Tập podcast của nhóm, kể lại câu chuyện qua giọng đọc và âm thanh.">
-<meta property="og:title" content="Đan Thanh – Kịch bản truyền thanh">
-<meta property="og:description" content="Tập podcast của nhóm, kể lại câu chuyện qua giọng đọc và âm thanh.">
+<title>Trạm Dừng Chân : Những lá thư không gửi #1 | Kênh Đan Thanh</title>
+<meta name="description" content="Khi cơ thể và tâm trí lên tiếng - Bạn sẽ lắng nghe chứ?">
+<meta property="og:title" content="Trạm Dừng Chân : Những lá thư không gửi #1">
+<meta property="og:description" content="Khi cơ thể và tâm trí lên tiếng - Bạn sẽ lắng nghe chứ?">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#161616">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff6a2b'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3E%C4%90T%3C/text%3E%3C/svg%3E">
@@ -67,7 +67,8 @@
   .card { background: var(--panel); border-radius: var(--radius); padding: clamp(18px, 3vw, 32px); margin-bottom: 18px; }
 
   /* episode header */
-  .ep { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+  .ep { display: grid; grid-template-columns: 220px minmax(0, 1fr) auto; gap: 32px; align-items: start; }
+  .ep > div { display: flex; flex-direction: column; align-self: stretch; }
   .cover {
     aspect-ratio: 1; border-radius: 10px; overflow: hidden; display: block; width: 100%; height: auto;
     object-fit: cover; object-position: center 45%; background: #2a1a10;
@@ -76,6 +77,16 @@
   .meta { color: var(--ink-2); font-size: 15px; }
   h1 { font-size: clamp(24px, 3vw, 34px); line-height: 1.2; margin: 6px 0 12px; font-weight: 800; }
   .lede { color: var(--ink-2); font-size: 17px; margin: 0; }
+  .qr { display: block; background: #fff; border-radius: 12px; padding: 6px; }
+  .qr-sm { width: 148px; height: 148px; align-self: center; }
+  .qr-link { margin-top: auto; padding-top: 16px; color: var(--ink); font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+  .qr-card { display: flex; align-items: center; gap: 28px; }
+  .qr-card .qr { width: 200px; height: 200px; flex: none; }
+  .qr-card h3 { font-size: 24px; margin: 4px 0 8px; }
+  .kicker { color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .kicker::before { content: "● "; }
+  .hint { color: var(--ink-2); margin: 0 0 14px; }
+  .chip { display: inline-block; background: var(--panel-2); color: var(--ink); text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 8px; word-break: break-all; }
 
   /* player */
   .player { margin-top: 30px; }
@@ -125,6 +136,10 @@
     .rail svg { width: 22px; height: 22px; }
     main { padding: 14px 16px 100px; }
     .ep { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
+    .qr-sm { display: none; }
+    .qr-card { gap: 18px; }
+    .qr-card .qr { width: 120px; height: 120px; }
+    .qr-card h3 { font-size: 18px; }
     .meta { font-size: 13px; }
     .lede { font-size: 15px; }
     .player { margin-top: 24px; }
@@ -139,6 +154,8 @@
     .rate b { margin: 0; background: var(--panel-2); padding: 4px 8px; border-radius: 8px; }
     .ep { grid-template-columns: 1fr; }
     .cover { width: 120px; }
+    .qr-card { flex-direction: column; align-items: flex-start; }
+    .qr-card .qr { width: 160px; height: 160px; }
   }
 </style>
 </head>
@@ -168,9 +185,11 @@
         <img class="cover" src="img/cover.jpg" alt="Ảnh bìa: hoàng hôn trên biển" width="533" height="800">
         <div>
           <div class="meta">Chủ nhật, 15/11/2026, 17:00 (GMT+7)</div>
-          <h1>Đan Thanh – Kịch bản truyền thanh</h1>
-          <p class="lede">Tập podcast của nhóm, kể lại câu chuyện qua giọng đọc và âm thanh.</p>
+          <h1>Trạm Dừng Chân : Những lá thư không gửi #1</h1>
+          <p class="lede">Khi cơ thể và tâm trí lên tiếng - Bạn sẽ lắng nghe chứ?</p>
+          <a class="qr-link" href="#qr">Quét mã QR để lắng nghe podcast</a>
         </div>
+        <img class="qr qr-sm" src="img/qr.svg" alt="Mã QR mở trang podcast" width="148" height="148">
       </div>
 
       <div class="player">
@@ -203,6 +222,16 @@
             <svg id="ic-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M11 5 6 9H2v6h4l5 4z" fill="currentColor"/><path d="m22 9-6 6M16 9l6 6"/></svg>
           </button>
         </div>
+      </div>
+    </section>
+
+    <section class="card qr-card" id="qr">
+      <img class="qr" src="img/qr.svg" alt="Mã QR mở trang podcast" width="200" height="200">
+      <div>
+        <div class="kicker">Nghe trên điện thoại</div>
+        <h3>Quét mã QR để vào trang web và nghe podcast</h3>
+        <p class="hint">Mở camera điện thoại, hướng vào mã bên cạnh rồi bấm vào đường dẫn hiện ra.</p>
+        <a class="chip" href="https://hieutrinh04.github.io/dan-thanh-podcast/">hieutrinh04.github.io/dan-thanh-podcast</a>
       </div>
     </section>
 
@@ -289,7 +318,7 @@
   };
 
   if ('mediaSession' in navigator) {
-    navigator.mediaSession.metadata = new MediaMetadata({ title: 'Đan Thanh – Kịch bản truyền thanh', artist: 'Kênh Đan Thanh · Nhóm 4' });
+    navigator.mediaSession.metadata = new MediaMetadata({ title: 'Trạm Dừng Chân : Những lá thư không gửi #1', artist: 'Kênh Đan Thanh · Nhóm 4' });
     navigator.mediaSession.setActionHandler('seekbackward', () => $('back').click());
     navigator.mediaSession.setActionHandler('seekforward', () => $('fwd').click());
   }
