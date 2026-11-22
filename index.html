@@ -69,15 +69,10 @@
   /* episode header */
   .ep { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
   .cover {
-    aspect-ratio: 1; border-radius: 10px; position: relative; overflow: hidden;
-    background:
-      radial-gradient(120% 90% at 85% 100%, rgba(255,106,43,.85), transparent 55%),
-      radial-gradient(90% 80% at 10% 0%, rgba(124,92,196,.9), transparent 60%),
-      linear-gradient(160deg, #2a2140, #121019);
+    aspect-ratio: 1; border-radius: 10px; overflow: hidden; display: block; width: 100%; height: auto;
+    object-fit: cover; object-position: center 45%; background: #2a1a10;
     box-shadow: 0 10px 30px rgba(0,0,0,.35);
   }
-  .cover span { position: absolute; left: 16px; top: 14px; font-size: 22px; font-weight: 700; color: rgba(255,255,255,.75); }
-  .cover b { position: absolute; right: 14px; bottom: 4px; font-size: 96px; line-height: 1; font-weight: 900; color: rgba(255,255,255,.18); }
   .meta { color: var(--ink-2); font-size: 15px; }
   h1 { font-size: clamp(24px, 3vw, 34px); line-height: 1.2; margin: 6px 0 12px; font-weight: 800; }
   .lede { color: var(--ink-2); font-size: 17px; margin: 0; }
@@ -130,8 +125,6 @@
     .rail svg { width: 22px; height: 22px; }
     main { padding: 14px 16px 100px; }
     .ep { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
-    .cover b { font-size: 48px; }
-    .cover span { font-size: 13px; left: 10px; top: 8px; }
     .meta { font-size: 13px; }
     .lede { font-size: 15px; }
     .player { margin-top: 24px; }
@@ -172,7 +165,7 @@
 
     <section class="card" id="nghe">
       <div class="ep">
-        <div class="cover" aria-hidden="true"><span>Đan Thanh</span><b>ĐT</b></div>
+        <img class="cover" src="img/cover.jpg" alt="Ảnh bìa: hoàng hôn trên biển" width="533" height="800">
         <div>
           <div class="meta">Chủ nhật, 15/11/2026, 17:00 (GMT+7)</div>
           <h1>Đan Thanh – Kịch bản truyền thanh</h1>
